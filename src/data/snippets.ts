@@ -8,6 +8,29 @@ export interface Snippet {
 
 export const snippets: Snippet[] = [
   {
+    id: "use-debounce-hook",
+    title: "STOP HAMMERING YOUR API",
+    description: "I use this hook on every search bar I build. It waits for the user to stop typing before firing the API request so you save bandwidth.",
+    language: "typescript",
+    code: `import { useState, useEffect } from "react";
+
+export function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}`
+  },
+  {
     id: "wait-function",
     title: "THE WAIT FUNCTION",
     description: "I got tired of writing setTimeout inside a Promise every time I needed a delay. This one liner is arguably my most used snippet.",

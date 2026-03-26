@@ -24,7 +24,7 @@ export function ArticleDetail() {
   return (
     <article className="min-h-screen bg-black max-w-3xl mx-auto px-6 py-16">
       <Link to="/articles" className="text-xs font-mono text-neutral-500 hover:text-white mb-12 flex items-center gap-2 uppercase tracking-widest transition-colors">
-        &larr; directory
+        &larr; ALL ARTICLES
       </Link>
       
       <header className="mb-12 border-b border-neutral-800 pb-12">
