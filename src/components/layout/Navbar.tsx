@@ -1,4 +1,4 @@
-import profileImg from '@/assets/kawsar.webp';
+import profileImg from "@/assets/kawsar.webp";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -9,26 +9,20 @@ export function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setIsOpen(false), [location.pathname]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   const links = [
-    { name: "Home", path: "/" },
-    { name: "Articles", path: "/articles" },
-    { name: "Snippets", path: "/snippets" },
-    { name: "About", path: "/about" },
+    { name: "home", path: "/" },
+    { name: "articles", path: "/articles" },
+    { name: "snippets", path: "/snippets" },
+    { name: "about", path: "/about" },
   ];
 
   return (
@@ -52,22 +46,28 @@ export function Navbar() {
             THE DEV BLOG
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={cn(
-                  "text-sm font-mono uppercase tracking-widest transition-colors",
-                  location.pathname === link.path
-                    ? "text-white"
-                    : "text-[#a3a3a3] hover:text-white",
-                )}
-              >
-                [{link.name}]
-              </Link>
-            ))}
-          </div>
+          <div className="hidden md:flex items-center gap-8"></div>
+          
+          <button
+            className="md:hidden text-[#a3a3a3] hover:text-white transition-colors"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open Menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </nav>
 
