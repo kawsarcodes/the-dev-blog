@@ -4,7 +4,7 @@ export function About() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
       <div className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-5xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white to-[#a3a3a3] bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white to-[#a3a3a3] bg-clip-text text-transparent">
           ABOUT
         </h1>
         <div className="flex flex-col md:flex-row gap-12 items-center">
@@ -27,7 +27,7 @@ export function About() {
                 This blog is where I share deep technical dives, architectural
                 patterns, and practical code snippets. The goal is to document
                 the journey of a CSE student and Full Stack Developer while
-                providing reusable snippets for the developer community. 
+                providing reusable snippets for the developer community.
               </p>
             </div>
           </div>
