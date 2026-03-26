@@ -1,5 +1,5 @@
 import profileImg from '@/assets/kawsar.webp';
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -35,9 +35,23 @@ export function Navbar() {
     <>
       <nav className="border-b border-[#262626] bg-black sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="font-mono font-bold text-xl tracking-tighter">
+          <Link
+            to="/"
+            className="flex items-center gap-3 font-mono font-bold text-xl tracking-tighter group"
+          >
+            <svg
+              viewBox="0 0 100 100"
+              width="28"
+              height="28"
+              className="fill-white"
+            >
+              <path d="M33.904 34.497a3.38 3.38 0 0 0-.99-2.39l-4.78-4.78a3.381 3.381 0 0 0-4.782 0L3.787 46.892a4.396 4.396 0 0 0 0 6.216l19.565 19.565a3.38 3.38 0 0 0 4.78.001l4.78-4.78a3.381 3.381 0 0 0 0-4.781L19.8 50l13.114-13.112a3.38 3.38 0 0 0 .99-2.391z" />
+              <path d="M74.257 26.336c-.896 0-1.756.356-2.39.99l-4.78 4.78a3.381 3.381 0 0 0 0 4.781L80.2 50 67.086 63.112a3.38 3.38 0 0 0 0 4.78l4.78 4.78v.002a3.381 3.381 0 0 0 4.782 0l19.565-19.565a4.396 4.396 0 0 0 0-6.217L76.648 27.326a3.38 3.38 0 0 0-2.39-.99z" />
+              <path d="M59.44 9.433h-6.483a3.378 3.378 0 0 0-3.334 2.825L37.227 86.63a3.377 3.377 0 0 0 3.335 3.937h6.482a3.377 3.377 0 0 0 3.335-2.825L62.774 13.37a3.379 3.379 0 0 0-3.334-3.937z" />
+            </svg>
             THE DEV BLOG
           </Link>
+
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
@@ -53,15 +67,6 @@ export function Navbar() {
                 [{link.name}]
               </Link>
             ))}
-          </div>
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(true)}
-              className="text-[#a3a3a3] hover:text-white transition-colors"
-              aria-label="Open Menu"
-            >
-              <Menu size={24} />
-            </button>
           </div>
         </div>
       </nav>
