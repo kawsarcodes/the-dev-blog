@@ -9,6 +9,66 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    id: "nextjs-server-actions-architecture",
+    title: "Server Actions: The Modern Mutation Pattern",
+    description:
+      "Server Actions have redefined how we handle data in React. Are they the death of API routes or just a cleaner RPC layer? Let's look at the code.",
+    date: "27 March, 2026",
+    tags: ["Next.js", "React", "Architecture"],
+    content: `
+The standard pattern in Next.js used to require creating a form, fetching an API route, handling the POST request, and then manually revalidating. This created unnecessary overhead and context switching.
+
+Modern Server Actions change this mental model by allowing you to invoke server code directly from client components. In the current ecosystem, this is the primary way to handle mutations.
+
+### The Old Way (API Routes)
+
+Logic was fragmented across two files: the component handling the fetch and the API route handler.
+
+### The Modern Way (Server Actions)
+
+\`\`\`tsx
+// actions.ts
+'use server'
+
+import { revalidatePath } from 'next/cache'
+import { db } from '@/lib/db'
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().min(1)
+})
+
+export async function createUser(formData: FormData) {
+  const validatedFields = schema.parse({
+    name: formData.get('name'),
+  })
+
+  await db.user.create({ data: { name: validatedFields.name } })
+  revalidatePath('/')
+}
+
+// Component.tsx
+import { createUser } from './actions'
+
+export default function Register() {
+  return (
+    <form action={createUser} className="flex flex-col gap-4">
+      <input name="name" className="border border-[#262626] bg-black p-2" />
+      <button type="submit" className="bg-white text-black p-2 font-bold uppercase">
+        Save
+      </button>
+    </form>
+  )
+}
+\`\`\`
+
+Is it cleaner? Yes.
+Is it dangerous? Only if you skip validation. 
+
+Server Actions are essentially RPC (Remote Procedure Calls) baked into the core of React. Use them, but remember that these functions are exposed to the public internet. Secure them with Zod and proper authorization.
+    `,
+  },
+  {
     id: "node-streams-for-big-data",
     title: "Stop Using fs.readFile for Big Files",
     description:
