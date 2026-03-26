@@ -1,5 +1,5 @@
 import profileImg from '@/assets/kawsar.webp';
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -68,6 +68,14 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+
+          <button
+            onClick={() => setIsOpen(true)}
+            className="md:hidden text-[#a3a3a3] hover:text-white transition-colors p-2"
+            aria-label="Open Menu"
+          >
+            <Menu size={24} />
+          </button>
         </div>
       </nav>
 
@@ -121,18 +129,18 @@ export function Navbar() {
                     <img
                       src={profileImg}
                       alt="Profile"
-                      className="w-30 h-30  aspect-square object-cover rounded-xl border border-[#262626] grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
+                      className="w-24 h-24 aspect-square object-cover rounded-xl border border-[#262626] grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
                       referrerPolicy="no-referrer"
                     />
 
                     <div>
-                      <ul className="space-y-3 font-mono text-sm flex flex-col content-center">
+                      <ul className="space-y-3 font-mono text-xs flex flex-col">
                         <li>
                           <a
                             href="https://kawsar.dev"
                             className="text-[#a3a3a3] hover:text-white transition-colors"
                           >
-                            PORTFOLIO -&gt;
+                            PORTFOLIO →
                           </a>
                         </li>
                         <li>
@@ -140,7 +148,7 @@ export function Navbar() {
                             href="https://www.youtube.com/@kawsarcodes"
                             className="text-[#a3a3a3] hover:text-white transition-colors"
                           >
-                            YOUTUBE -&gt;
+                            YOUTUBE →
                           </a>
                         </li>
                         <li>
@@ -148,7 +156,7 @@ export function Navbar() {
                             href="https://github.com/kawsarcodes"
                             className="text-[#a3a3a3] hover:text-white transition-colors"
                           >
-                            GITHUB -&gt;
+                            GITHUB →
                           </a>
                         </li>
                         <li>
@@ -156,7 +164,7 @@ export function Navbar() {
                             href="https://linkedin.com/in/mdkawsarahmed"
                             className="text-[#a3a3a3] hover:text-white transition-colors"
                           >
-                            LINKEDIN -&gt;
+                            LINKEDIN →
                           </a>
                         </li>
                       </ul>
