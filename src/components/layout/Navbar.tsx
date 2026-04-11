@@ -1,9 +1,13 @@
 import profileImg from '@/assets/kawsar.webp';
+import { clsx, type ClassValue } from "clsx";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { cn } from "../../lib/utils";
+import { twMerge } from "tailwind-merge";
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export function Navbar() {
   const location = useLocation();
@@ -136,34 +140,22 @@ export function Navbar() {
                     <div>
                       <ul className="space-y-3 font-mono text-xs flex flex-col">
                         <li>
-                          <a
-                            href="https://kawsar.dev"
-                            className="text-[#a3a3a3] hover:text-white transition-colors"
-                          >
+                          <a href="https://kawsar.dev" className="text-[#a3a3a3] hover:text-white transition-colors">
                             PORTFOLIO →
                           </a>
                         </li>
                         <li>
-                          <a
-                            href="https://www.youtube.com/@kawsarcodes"
-                            className="text-[#a3a3a3] hover:text-white transition-colors"
-                          >
+                          <a href="https://www.youtube.com/@kawsarcodes" className="text-[#a3a3a3] hover:text-white transition-colors">
                             YOUTUBE →
                           </a>
                         </li>
                         <li>
-                          <a
-                            href="https://github.com/kawsarcodes"
-                            className="text-[#a3a3a3] hover:text-white transition-colors"
-                          >
+                          <a href="https://github.com/kawsarcodes" className="text-[#a3a3a3] hover:text-white transition-colors">
                             GITHUB →
                           </a>
                         </li>
                         <li>
-                          <a
-                            href="https://linkedin.com/in/mdkawsarahmed"
-                            className="text-[#a3a3a3] hover:text-white transition-colors"
-                          >
+                          <a href="https://linkedin.com/in/mdkawsarahmed" className="text-[#a3a3a3] hover:text-white transition-colors">
                             LINKEDIN →
                           </a>
                         </li>

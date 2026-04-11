@@ -41,7 +41,7 @@ export function CodeBlock({ language, value }: Props) {
           className="text-neutral-500 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-mono tracking-widest"
         >
           {isCopied ? (
-            <><Check size={12} strokeWidth={3} /> DONE</>
+            <><Check size={12} strokeWidth={3} /> COPPIED!</>
           ) : (
             <><Copy size={12} strokeWidth={3} /> COPY</>
           )}

@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
+import CustomCursor from "./components/ui/CustomCursor";
 import { About } from "./pages/About";
 import { ArticleDetail } from "./pages/ArticleDetail";
 import { Articles } from "./pages/Articles";
@@ -9,9 +10,10 @@ import { Snippets } from "./pages/Snippets";
 export default function App() {
   return (
     <Router>
+      <CustomCursor />
       <div className="min-h-screen bg-black text-white flex flex-col selection:bg-white selection:text-black">
         <Navbar />
-        
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,16 +29,16 @@ export default function App() {
             <p className="text-[10px] font-mono text-neutral-600 uppercase tracking-[0.3em]">
               &copy; {new Date().getFullYear()} kawsarcodes
             </p>
-            
+
             <div className="flex gap-8">
-              <a 
-                href="https://github.com/kawsarcodes" 
+              <a
+                href="https://github.com/kawsarcodes"
                 className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest transition-colors"
               >
                 github ↗
               </a>
-              <a 
-                href="https://youtube.com/@kawsarcodes" 
+              <a
+                href="https://youtube.com/@kawsarcodes"
                 className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest transition-colors"
               >
                 youtube ↗
